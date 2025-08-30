@@ -22,28 +22,33 @@ Analizar estas secuencias permite responder preguntas esenciales de la biología
 
 Algunos ejemplos de operaciones que la herramienta realizará incluyen:
 
-- **Cálculo de contenido GC en ADN:**
+- **Contenido de GC:**
 
   ```text
-  Entrada: ATGCGTAC
-  Salida: GC content = 50%
+  Entrada -> ATGCGTAC
+  Salida  -> 50%
   ```
 
-- **Transcripción ADN → ARN:**
+- **Transcripción:**
   ```text
-  Entrada: ATGCGTAC
-  Salida: AUGCGUAC
+  Entrada -> ATGCGTAC
+  Salida  -> AUGCGUAC
   ```
-- **Búsqueda de motifs:**
+- **Búsqueda de motivos:**
   ```text
-  Secuencia: ATGCGTAC
-  Motif: CG
-  Posiciones: 3, 5
+  Entrada -> ATGCGTAC, CG
+  Salida  -> 3, 5
   ```
-- **Homopolímeros más largos:**
+- **Homopolímero más largo:**
   ```text
-  Secuencia: ATGGGCT
-  Resultado: GGG
+  Entrada -> ATGGGCT
+  Salida  -> GGG
+  ```
+  
+- **Complemento reverso:**
+  ```text
+  Entrada -> AAAACCCGGT
+  Salida  -> ACCGGGTTTT
   ```
 
 ## Planteo del problema
