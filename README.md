@@ -1,4 +1,4 @@
-# BioSeq – Análisis de Secuencias Biológicas
+# BioSec – Análisis de Secuencias Biológicas
 
 **Tema:** Desarrollo de una herramienta para realizar análisis básicos de secuencias de ADN, ARN y proteínas
 
@@ -36,8 +36,8 @@ Algunos ejemplos de operaciones que la herramienta realizará incluyen:
   ```
 - **Búsqueda de motivos:**
   ```text
-  Entrada -> ATGCGTAC, CG
-  Salida  -> 3, 5
+  Entrada -> ATGCGCGACGGCGTGATCAGCTTATAGCCGTACGACTGCTGCAACGTGACTGAT, ACG
+  Salida  -> 7, 31, 43
   ```
 - **Homopolímero más largo:**
   ```text
