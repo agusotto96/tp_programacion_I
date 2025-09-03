@@ -5,7 +5,7 @@ def es_adn(secuencia):
     Una secuencia de ADN es válida si no está vacía y contiene solo los nucleótidos:
     A (Adenina), T (Timina), C (Citosina) y G (Guanina).
     """
-    return len(secuencia) > 0 and all(base in "ATCG" for base in secuencia)
+    pass
 
 
 def es_arn(secuencia):
@@ -15,7 +15,7 @@ def es_arn(secuencia):
     Una secuencia de ARN es válida si no está vacía y contiene solo los nucleótidos:
     A (Adenina), U (Uracilo), C (Citosina) y G (Guanina).
     """
-    return len(secuencia) > 0 and all(base in "AUCG" for base in secuencia)
+    pass
 
 
 def es_proteina(secuencia):
@@ -116,23 +116,23 @@ def complemento_reverso(secuencia):
 
 def palindromos(secuencia):
     """
-    Devuelve las subcadenas palindrómicas de ADN en la secuencia, de longitud entre 4 y 12 nucleótidos.
+    Devuelve las subcadenas palindrómicas de ADN en la secuencia, de longitud entre 4 y 10 nucleótidos.
 
     Se consideran palíndromos aquellas subcadenas que coinciden con su complemento reverso.
     """
     pass
 
 
-def proporcion_transiciones_transversiones(a, b):
+def contar_transiciones_y_transversiones(a, b):
     """
-    Calcula la proporción entre transiciones y transversiones entre dos secuencias de ADN del mismo largo.
+    Cuenta cuántas transiciones y transversiones hay entre dos secuencias de ADN del mismo largo.
 
     - Purinas: adenina (A) y guanina (G)
     - Pirimidinas: citosina (C) y timina (T)
     - Transición: sustitución entre purinas o entre pirimidinas
     - Transversión: sustitución entre purina y pirimidina
     """
-    pass
+    return -1, -1
 
 
 def motivo_compartido(secuencias):
