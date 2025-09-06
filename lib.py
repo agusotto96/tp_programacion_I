@@ -1,39 +1,54 @@
 def es_adn(secuencia):
     """
-    Verifica si la secuencia es un ADN válido.
+    Verifica si la secuencia es un ADN válido. Una secuencia es un ADN válido cuando no está vacía
+    y solo contiene los nucleótidos A (Adenina), T (Timina), C (Citosina) y G (Guanina).
 
-    Una secuencia de ADN es válida si no está vacía y contiene solo los nucleótidos:
-    A (Adenina), T (Timina), C (Citosina) y G (Guanina).
+    Parámetros:
+        - secuencia (str): Cadena que representa la secuencia de ADN a validar.
+
+    Retorna:
+        - bool: True si la secuencia es válida; False en caso contrario.
     """
     pass
 
 
 def es_arn(secuencia):
     """
-    Verifica si la secuencia es un ARN válido.
+    Verifica si la secuencia es un ARN válido. Una secuencia es un ARN válido cuando no está vacía
+    y solo contiene los nucleótidos A (Adenina), U (Uracilo), C (Citosina) y G (Guanina).
 
-    Una secuencia de ARN es válida si no está vacía y contiene solo los nucleótidos:
-    A (Adenina), U (Uracilo), C (Citosina) y G (Guanina).
+    Parámetros:
+        - secuencia (str): Cadena que representa la secuencia de ARN a validar.
+
+    Retorna:
+        - bool: True si la secuencia es válida; False en caso contrario.
     """
     pass
 
 
 def es_proteina(secuencia):
     """
-    Verifica si la secuencia es una proteína válida.
+    Verifica si la secuencia es una proteína válida. Una secuencia es una proteína válida cuando no está vacía
+    y solo contiene símbolos de los 20 aminoácidos estándar: A, R, N, D, C, Q, E, G, H, I, L, K, M, F, P, S, T, W, Y, V.
 
-    Una secuencia proteica es válida si no está vacía y esta compuesta solo por alguno de los 20 aminoácidos:
-    A, R, N, D, C, Q, E, G, H, I, L, K, M, F, P, S, T, W, Y, V.
+    Parámetros:
+        - secuencia (str): Cadena que representa la secuencia proteica a validar.
+
+    Retorna:
+        - bool: True si la secuencia es válida; False en caso contrario.
     """
     pass
 
 
 def adn_random(longitud):
     """
-    Genera una secuencia de ADN aleatoria de una longitud dada.
+    Genera una secuencia válida de ADN aleatoria con la longitud indicada.
 
-    La secuencia estará compuesta únicamente por los nucleótidos:
-    A (Adenina), T (Timina), C (Citosina) y G (Guanina).
+    Parámetros:
+        - longitud (int): Cantidad de nucleótidos que debe tener la secuencia generada.
+
+    Retorna:
+        - str: Secuencia de ADN aleatoria de la longitud solicitada.
     """
     return ""
 
@@ -41,14 +56,28 @@ def adn_random(longitud):
 def mutar_adn(secuencia, cantidad_mutaciones):
     """
     Aplica mutaciones aleatorias sobre una secuencia de ADN dada.
+    Cada mutación consiste en reemplazar un nucleótido por otro nucleótido válido del ADN.
 
-    Cada mutación consiste en reemplazar un nucleótido por otro nucleótido válido de ADN.
+    Parámetros:
+        - secuencia (str): Secuencia de ADN original.
+        - cantidad_mutaciones (int): Número de mutaciones a aplicar.
+
+    Retorna:
+        - str: Nueva secuencia de ADN, de la misma longitud, con la cantidad especificada de nucleótidos reemplazados por otros válidos.
     """
     return ""
 
 
 def contenido_gc(secuencia):
-    """Calcula el porcentaje de Guanina (G) y Citosina (C) en una secuencia de ADN o ARN, redondeado a 2 decimales."""
+    """
+    Calcula el porcentaje de Guanina (G) y Citosina (C) en una secuencia.
+
+    Parámetros:
+        - secuencia (str): Cadena de ADN o ARN.
+
+    Retorna:
+        - float: Porcentaje de bases G o C sobre el total, redondeado a 2 decimales.
+    """
     pass
 
 
@@ -56,16 +85,24 @@ def transcripcion(secuencia):
     """
     Convierte una secuencia de ADN a ARN.
 
-    Reemplaza cada Timina (T) por Uracilo (U).
+    Parámetros:
+        - secuencia (str): Secuencia de ADN.
+
+    Retorna:
+        - str: Secuencia de ARN, donde cada Timina (T) del ADN fue reemplazada por Uracilo (U).
     """
     pass
 
 
-def retrotranscripcion(arn_seq):
+def retrotranscripcion(secuencia):
     """
     Convierte una secuencia de ARN a ADN.
 
-    Reemplaza cada Uracilo (U) por Timina (T).
+    Parámetros:
+        - secuencia (str): Secuencia de ARN.
+
+    Retorna:
+        - str: Secuencia de ADN, donde cada Uracilo (U) del ARN fue reemplazado por Timina (T).
     """
     pass
 
@@ -73,29 +110,41 @@ def retrotranscripcion(arn_seq):
 def distancia_hamming(a, b):
     """
     Calcula el número de diferencias entre dos secuencias del mismo largo.
+
+    Parámetros:
+        - a (str): Primera secuencia.
+        - b (str): Segunda secuencia, de la misma longitud que 'a'.
+
+    Retorna:
+        - int: Cantidad de posiciones donde las secuencias difieren.
     """
     pass
 
 
 def buscar_motivo(secuencia, motivo, distancia_hamming_maxima=0):
     """
-    Devuelve una lista con las posiciones donde aparece un 'motivo' en 'secuencia',
-    permitiendo hasta 'distancia_hamming_maxima' diferencias.
+    Busca las posiciones donde aparece un motivo en una secuencia.
 
-    La distancia de Hamming indica cuántos elementos pueden diferir entre el motivo
-    y la subsecuencia correspondiente para considerarla una coincidencia.
+    Parámetros:
+        - secuencia (str): Secuencia principal donde se busca.
+        - motivo (str): Subcadena que se desea encontrar.
+        - distancia_hamming_maxima (int): Número máximo de diferencias permitidas.
 
-    - distancia_hamming_maxima = 0 → coincidencias exactas
-    - distancia_hamming_maxima > 0 → coincidencias aproximadas
+    Retorna:
+        - list: Lista de índices (int) donde comienza cada coincidencia que cumple con la distancia de Hamming máxima permitida.
     """
     pass
 
 
 def homopolimero_mas_largo(secuencia):
     """
-    Devuelve el homopolímero más largo de una secuencia.
+    Encuentra el homopolímero más largo dentro de una secuencia.
 
-    Un homopolímero es una repetición consecutiva de la misma base.
+    Parámetros:
+        - secuencia (str): Secuencia de ADN o ARN.
+
+    Retorna:
+        - str: Subcadena más larga compuesta por repeticiones consecutivas del mismo nucleótido.
     """
     pass
 
@@ -104,58 +153,99 @@ def complemento_reverso(secuencia):
     """
     Devuelve el complemento reverso de una secuencia de ADN.
 
-    Se obtiene invirtiendo el orden de los nucleótidos y reemplazando cada base por su complemento:
+    Para ello, se invierte el orden de la secuencia y se reemplaza cada nucleótido por su complemento:
+        - A -> T
+        - T -> A
+        - C -> G
+        - G -> C
 
-    - A -> T
-    - T -> A
-    - C -> G
-    - G -> C
+    Parámetros:
+        - secuencia (str): Secuencia de ADN.
+
+    Retorna:
+        - str: Secuencia de ADN resultante al invertir el orden de los nucleótidos y reemplazar cada uno por su complemento correspondiente.
     """
     pass
 
 
 def palindromos(secuencia):
     """
-    Devuelve las subcadenas palindrómicas de ADN en la secuencia, de longitud entre 4 y 10 nucleótidos.
+    Busca subcadenas palindrómicas de ADN en la secuencia.
 
-    Se consideran palíndromos aquellas subcadenas que coinciden con su complemento reverso.
+    Una secuencia de ADN es palindrómica cuando coincide con su complemento reverso.
+
+    Esta función identifica todas las subcadenas de longitud entre 4 y 10 nucleótidos
+    que cumplen esa condición.
+
+    Parámetros:
+        - secuencia (str): Secuencia de ADN.
+
+    Retorna:
+        - list: Lista de subcadenas (str) palindrómicas, es decir, que coinciden con su complemento reverso.
     """
     pass
 
 
 def contar_transiciones_y_transversiones(a, b):
     """
-    Cuenta cuántas transiciones y transversiones hay entre dos secuencias de ADN del mismo largo.
+    Cuenta cuántas transiciones y transversiones hay entre dos secuencias de ADN
+    del mismo largo.
 
-    - Purinas: adenina (A) y guanina (G)
-    - Pirimidinas: citosina (C) y timina (T)
-    - Transición: sustitución entre purinas o entre pirimidinas
-    - Transversión: sustitución entre purina y pirimidina
+    Definiciones:
+        - Purinas: adenina (A) y guanina (G)
+        - Pirimidinas: citosina (C) y timina (T)
+        - Transición: sustitución entre purinas o entre pirimidinas
+        - Transversión: sustitución entre una purina y una pirimidina
+
+    Parámetros:
+        - a (str): Primera secuencia de ADN.
+        - b (str): Segunda secuencia de ADN, de la misma longitud que 'a'.
+
+    Retorna:
+        - int, int: Cantidades de transiciones y transversiones, en ese orden.
     """
     return -1, -1
 
 
 def motivo_compartido(secuencias):
     """
-    Busca el motivo compartido más largo entre todas las secuencias.
+    Busca el motivo compartido más largo entre todas las secuencias de ADN dadas.
+
+    Un motivo es una subcadena continua que aparece en múltiples secuencias.
+    Esta función analiza todas las secuencias recibidas y determina la subcadena
+    más larga que está presente en todas ellas.
+
+    Parámetros:
+        - secuencias (list): Lista de secuencias de ADN (str).
+
+    Retorna:
+        - str: Motivo más largo que aparece en todas las secuencias. Devuelve una cadena vacía si no existe ningún motivo compartido.
     """
     pass
 
 
 def marcos_de_lectura(secuencia):
     """
-    Genera los tres marcos de lectura posibles de una secuencia de ARN.
+    Genera hasta tres marcos de lectura posibles de una secuencia de ARN.
 
-    Los nucleótidos del ARN se agrupan en tripletes durante la traducción a proteínas,
-    y cada triplete se asocia a un aminoácido específico. Cada secuencia de ARN puede
-    leerse de tres formas distintas, comenzando desde el primer, segundo o tercer nucleótido.
-    Cada una de estas formas constituye un marco de lectura diferente, que puede dar lugar
-    a proteínas distintas dependiendo de dónde se inicia la traducción.
+    Un marco de lectura es la forma en que se agrupan los nucleótidos de una secuencia
+    para leerlos en tripletes (codones). Dependiendo del punto de inicio, una misma
+    cadena puede leerse de tres maneras diferentes: comenzando desde el primer, el
+    segundo o el tercer nucleótido.
+
+    Esta función devuelve las subsecuencias que representan cada marco de lectura
+    posible. Si la secuencia es demasiado corta, puede haber menos de tres marcos.
+
+    Parámetros:
+        - secuencia (str): Secuencia de ARN.
+
+    Retorna:
+        - list: Lista con hasta tres secuencias (str), cada una representando un marco de lectura que comienza en los índices 0, 1 y 2 respectivamente.
 
     Ejemplo:
         - Secuencia: AUGGCU
         - Marco 1: AUG GCU
-        - Marco 2: UGG CU.
-        - Marco 3: GGC U..
+        - Marco 2: UGG CU
+        - Marco 3: GGC U
     """
     pass
