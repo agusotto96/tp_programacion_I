@@ -7,6 +7,7 @@ def test_es_adn():
         ["AT", True, "subset"],
         ["AXT", False, "caracter_desconocido"],
         ["ATCG", True, "completo"],
+        ["ATCGATCG", True, "caracteres_duplicados"],
     ]
     for secuencia, esperado, nombre in casos:
         resultado = lib.es_adn(secuencia)
@@ -21,7 +22,9 @@ def test_es_arn():
         ["", False, "vacio"],
         ["AU", True, "subset"],
         ["AXU", False, "caracter_desconocido"],
+        ["ATCG", False, "es_adn"],
         ["AUCG", True, "completo"],
+        ["AUCGAUCG", True, "caracteres_duplicados"],
     ]
     for secuencia, esperado, nombre in casos:
         resultado = lib.es_arn(secuencia)
@@ -37,6 +40,7 @@ def test_es_proteina():
         ["KMFP", True, "subset"],
         ["KMXFP", True, "caracter_desconocido"],
         ["ARNDCEQGHILKMFPSTWYV", True, "completo"],
+        ["ARNDCEQGHILKMFPSTWYVARNDCEQGHILKMFPSTWYV", True, "caracteres_duplicados"],
     ]
     for secuencia, esperado, nombre in casos:
         resultado = lib.es_proteina(secuencia)
