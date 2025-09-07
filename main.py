@@ -1,14 +1,34 @@
-from lib import es_adn, es_arn, contenido_gc
+import lib
+
+# Tipos de secuencias
+ADN = "ADN"
+ARN = "ARN"
+PROTEINA = "PROTEINA"
 
 
-def ingresar_secuencia():
+def ingresar_secuencia(tipos):
     while True:
-        tipo = input("Ingrese el tipo de secuencia (ADN o ARN): ").strip().upper()
-        if tipo in ["ADN", "ARN"]:
-            secuencia = input("Ingrese la secuencia (mayúsculas): ").strip().upper()
+        print("Tipos disponibles:", ", ".join(tipos))
+        tipo = input("Ingrese el tipo de secuencia: ")
+
+        if tipo not in tipos:
+            print("Tipo inválido. Intente nuevamente.")
+            continue
+
+        secuencia = input("Ingrese la secuencia: ")
+        if tipo == ADN:
+            valido = lib.es_adn(secuencia)
+        elif tipo == ARN:
+            valido = lib.es_arn(secuencia)
+        elif tipo == PROTEINA:
+            valido = lib.es_proteina(secuencia)
+        else:
+            valido = False
+
+        if valido:
             return tipo, secuencia
         else:
-            print("Tipo inválido. Debe ser 'ADN' o 'ARN'.")
+            print(f"La secuencia ingresada no es una secuencia válida de {tipo}. Intente nuevamente.")
 
 
 def main():
@@ -17,31 +37,15 @@ def main():
         print("1. Validar secuencia")
         print("2. Calcular contenido GC")
         print("3. Salir")
-        opcion = input("Ingrese una opción (1-3): ").strip()
+        opcion = input("Ingrese una opción (1-3): ")
 
         if opcion == "1":
-            tipo, secuencia = ingresar_secuencia()
-            if tipo == "ADN":
-                valido = es_adn(secuencia)
-            if tipo == "ARN":
-                valido = es_arn(secuencia)
-            if valido:
-                print(f"La secuencia es un {tipo} válido")
-            else:
-                print(f"La secuencia no es un {tipo} válido")
-
+            tipo, secuencia = ingresar_secuencia([ADN, ARN, PROTEINA])
+            print(f"La secuencia ingresada es una secuencia válida de {tipo}.")
 
         elif opcion == "2":
-            tipo, secuencia = ingresar_secuencia()
-            if tipo == "ADN":
-                valido = es_adn(secuencia)
-            if tipo == "ARN":
-                valido = es_arn(secuencia)
-            if not valido:
-                print(f"La secuencia no es un {tipo} válido")
-                continue
-
-            gc = contenido_gc(secuencia)
+            tipo, secuencia = ingresar_secuencia([ADN, ARN])
+            gc = lib.contenido_gc(secuencia)
             print(f"El contenido de G y C en la secuencia es: {gc}%")
 
         elif opcion == "3":
