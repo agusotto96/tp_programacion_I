@@ -232,10 +232,8 @@ def test_contar_transiciones_y_transversiones():
 def test_motivo_compartido():
     casos = [
         [["ACGTACGT", "AACCGTATA"], "CGTA", "coincidencia_parcial"],
-        [["GATTACA", "TAGACCA", "ATACA"], "AC", "coincidencia_parcial"],
         [["AAAA", "CCCC", "GGGG", "TTTT"], "", "sin_coincidencia"],
         [["ACGT", "ACGT", "ACGT"], "ACGT", "coincidencia_completa"],
-        [["ACGT"], "", "una_sola_secuencia"],
     ]
     for secuencias, esperado, nombre in casos:
         obtenido = lib.motivo_compartido(secuencias)

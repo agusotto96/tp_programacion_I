@@ -265,7 +265,13 @@ def motivo_compartido(secuencias):
     Retorna:
         - str: Motivo más largo que aparece en todas las secuencias. Devuelve una cadena vacía si no existe ningún motivo compartido.
     """
-    pass
+    motivo_max = min(secuencias, key=len)
+    for largo in range(len(motivo_max), 0, -1):
+        for i in range(0, len(motivo_max) - largo + 1):
+            motivo = motivo_max[i:i + largo]
+            if all(motivo in secuencia for secuencia in secuencias):
+                return motivo
+    return ""
 
 
 def marcos_de_lectura(secuencia):
