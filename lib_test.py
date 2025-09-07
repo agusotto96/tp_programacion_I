@@ -7,6 +7,7 @@ def test_es_adn():
         ["AT", True, "subset"],
         ["AXT", False, "caracter_desconocido"],
         ["ATCG", True, "completo"],
+        ["atcg", False, "minúscula"],
         ["ATCGATCG", True, "caracteres_duplicados"],
     ]
     for secuencia, esperado, nombre in casos:
@@ -24,6 +25,7 @@ def test_es_arn():
         ["AXU", False, "caracter_desconocido"],
         ["ATCG", False, "es_adn"],
         ["AUCG", True, "completo"],
+        ["aucg", False, "minúscula"],
         ["AUCGAUCG", True, "caracteres_duplicados"],
     ]
     for secuencia, esperado, nombre in casos:
@@ -40,6 +42,7 @@ def test_es_proteina():
         ["KMFP", True, "subset"],
         ["KMXFP", True, "caracter_desconocido"],
         ["ARNDCEQGHILKMFPSTWYV", True, "completo"],
+        ["arndceqghilkmfpstwyv", True, "minúscula"],
         ["ARNDCEQGHILKMFPSTWYVARNDCEQGHILKMFPSTWYV", True, "caracteres_duplicados"],
     ]
     for secuencia, esperado, nombre in casos:
