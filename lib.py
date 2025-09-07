@@ -1,3 +1,47 @@
+# Nucleótidos
+ADENINA = 'A'
+TIMINA = 'T'
+CITOSINA = 'C'
+GUANINA = 'G'
+URACILO = 'U'
+
+# Aminoácidos
+ALANINA = 'A'
+ARGININA = 'R'
+ASPARAGINA = 'N'
+ACIDO_ASPARTICO = 'D'
+CISTEINA = 'C'
+GLUTAMINA = 'Q'
+ACIDO_GLUTAMICO = 'E'
+GLICINA = 'G'
+HISTIDINA = 'H'
+ISOLEUCINA = 'I'
+LEUCINA = 'L'
+LISINA = 'K'
+METIONINA = 'M'
+FENILALANINA = 'F'
+PROLINA = 'P'
+SERINA = 'S'
+TREONINA = 'T'
+TRIPTOFANO = 'W'
+TIROSINA = 'Y'
+VALINA = 'V'
+
+# Nucleótidos que forman el ADN
+NUCLEOTIDOS_ADN = [ADENINA, TIMINA, CITOSINA, GUANINA]
+
+# Nucleótidos que forman el ARN
+NUCLEOTIDOS_ARN = [ADENINA, URACILO, CITOSINA, GUANINA]
+
+# Aminoácidos que forman las proteínas
+AMINOACIDOS_PROTEINA = [
+    ALANINA, ARGININA, ASPARAGINA, ACIDO_ASPARTICO, CISTEINA,
+    GLUTAMINA, ACIDO_GLUTAMICO, GLICINA, HISTIDINA, ISOLEUCINA,
+    LEUCINA, LISINA, METIONINA, FENILALANINA, PROLINA,
+    SERINA, TREONINA, TRIPTOFANO, TIROSINA, VALINA
+]
+
+
 def es_adn(secuencia):
     """
     Verifica si la secuencia es un ADN válido. Una secuencia es un ADN válido cuando no está vacía

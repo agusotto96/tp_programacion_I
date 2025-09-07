@@ -1,5 +1,6 @@
 import lib
 
+# Tipos de secuencias
 ADN = "ADN"
 ARN = "ARN"
 PROTEINA = "PROTEINA"
