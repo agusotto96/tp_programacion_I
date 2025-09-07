@@ -53,12 +53,7 @@ def es_adn(secuencia):
     Retorna:
         - bool: True si la secuencia es válida; False en caso contrario.
     """
-    if secuencia == "":
-        return False
-    for letra in secuencia:
-        if letra != 'A' and letra != 'T' and letra != 'C' and letra != 'G':
-            return False
-    return True
+    return len(secuencia) != 0 and all(nucleotido in NUCLEOTIDOS_ADN for nucleotido in secuencia)
 
 
 def es_arn(secuencia):
