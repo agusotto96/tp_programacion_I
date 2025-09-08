@@ -81,6 +81,9 @@ def es_proteina(secuencia):
     Retorna:
         - bool: True si la secuencia es válida; False en caso contrario.
     """
+    
+
+   
     pass
 
 
