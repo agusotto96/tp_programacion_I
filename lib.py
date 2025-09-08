@@ -67,6 +67,9 @@ def es_arn(secuencia):
     Retorna:
         - bool: True si la secuencia es válida; False en caso contrario.
     """
+    if secuencia >=1: True
+
+
     pass
 
 
