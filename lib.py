@@ -67,8 +67,22 @@ def es_arn(secuencia):
     Retorna:
         - bool: True si la secuencia es válida; False en caso contrario.
     """
-    if secuencia >=1: True
+    for i in secuencia:
+        if i == ADENINA:
+            continue
+        elif i == URACILO:
+            continue
+        elif i == CITOSINA:
+            continue
+        elif i == GUANINA:
+            continue
+        else:
+            return False
 
+    if len(secuencia) >=1:
+      return  True
+    else:
+        return False
 
     pass
 
