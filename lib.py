@@ -280,12 +280,27 @@ def motivo_compartido(secuencias):
     Retorna:
         - str: Motivo más largo que aparece en todas las secuencias. Devuelve una cadena vacía si no existe ningún motivo compartido.
     """
+    # Selecciono la secuencia más corta, porque ningún motivo puede ser más largo
     motivo_max = min(secuencias, key=len)
-    for largo in range(len(motivo_max), 0, -1):
-        for i in range(0, len(motivo_max) - largo + 1):
-            motivo = motivo_max[i:i + largo]
+    largo_max = len(motivo_max)
+
+    # Recorro posibles largos de motivo, desde el máximo hacia el mínimo
+    for largo in range(largo_max, 0, -1):
+
+        # Calculo el mayor índice de inicio posible para este largo
+        # Ejemplo: si largo == largo_max, solo puedo empezar en 0
+        mayor_inicio = largo_max - largo
+
+        # Recorro todos los inicios posibles y genero el motivo candidato
+        for inicio in range(0, mayor_inicio + 1):
+            motivo = motivo_max[inicio:inicio + largo]
+
+            # Verifico si el motivo está presente en todas las secuencias
+            # Si lo está, es el motivo común más largo posible
             if all(motivo in secuencia for secuencia in secuencias):
                 return motivo
+
+    # Si no se encontró ningún motivo común, devuelvo cadena vacía
     return ""
 
 
