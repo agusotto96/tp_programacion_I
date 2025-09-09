@@ -79,12 +79,10 @@ def es_arn(secuencia):
         else:
             return False
 
-    if len(secuencia) >=1:
-      return  True
+    if len(secuencia) >= 1:
+        return True
     else:
         return False
-
-    pass
 
 
 def es_proteina(secuencia):
