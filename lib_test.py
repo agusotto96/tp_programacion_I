@@ -256,6 +256,35 @@ def test_marcos_de_lectura():
             print(f"test_marcos_de_lectura_{nombre} OK")
 
 
+def test_perfil():
+    casos = [
+        (
+            [
+                "ATCCAGCT",
+                "GGGCAACT",
+                "ATGGATCT",
+                "AAGCAACC",
+                "TTGGAACT",
+                "ATGCCATT",
+                "ATGGCACT"
+            ],
+            [
+                [5, 1, 0, 0, 5, 5, 0, 0],  # A
+                [0, 0, 1, 4, 2, 0, 6, 1],  # C
+                [1, 1, 6, 3, 0, 1, 0, 0],  # G
+                [1, 5, 0, 0, 0, 1, 1, 6]  # T
+            ],
+            "basico"
+        )
+    ]
+    for secuencias, perfil_esperado, nombre in casos:
+        perfil_generado = lib.perfil(secuencias)
+        if perfil_generado != perfil_esperado:
+            print(f"test_perfil_{nombre} ERROR: obtenido {perfil_generado}, esperado {perfil_esperado}")
+        else:
+            print(f"test_perfil_{nombre} OK")
+
+
 test_es_adn()
 test_es_arn()
 test_es_proteina()
@@ -272,3 +301,4 @@ test_palindromos()
 test_contar_transiciones_y_transversiones()
 test_motivo_compartido()
 test_marcos_de_lectura()
+test_perfil()

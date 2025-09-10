@@ -137,7 +137,9 @@ def contenido_gc(secuencia):
     Retorna:
         - float: Porcentaje de bases G o C sobre el total, redondeado a 2 decimales.
     """
-    pass
+    gc = sum(1 for c in secuencia if c in [GUANINA, CITOSINA])
+    porcentaje = (gc / len(secuencia)) * 100
+    return round(porcentaje, 2)
 
 
 def transcripcion(secuencia):
@@ -263,7 +265,18 @@ def contar_transiciones_y_transversiones(a, b):
     Retorna:
         - int, int: Cantidades de transiciones y transversiones, en ese orden.
     """
-    return -1, -1
+    es_purina = lambda n: n in (ADENINA, GUANINA)
+    es_pirimidina = lambda n: n in (CITOSINA, TIMINA)
+    transiciones = 0
+    transversiones = 0
+    for n1, n2 in zip(a, b):
+        if n1 == n2:
+            continue
+        elif (es_purina(n1) and es_purina(n2)) or (es_pirimidina(n1) and es_pirimidina(n2)):
+            transiciones += 1
+        else:
+            transversiones += 1
+    return transiciones, transversiones
 
 
 def motivo_compartido(secuencias):
@@ -280,6 +293,7 @@ def motivo_compartido(secuencias):
     Retorna:
         - str: Motivo más largo que aparece en todas las secuencias. Devuelve una cadena vacía si no existe ningún motivo compartido.
     """
+    assert len(secuencias) != 0
     # Selecciono la secuencia más corta, porque ningún motivo puede ser más largo
     motivo_max = min(secuencias, key=len)
     largo_max = len(motivo_max)
@@ -329,3 +343,43 @@ def marcos_de_lectura(secuencia):
         - Marco 3: GGC U
     """
     pass
+
+
+def perfil(secuencias):
+    """
+    Calcula el perfil de un conjunto de secuencias de ADN de igual longitud.
+
+    El perfil es una tabla 4×n donde n es la longitud de las secuencias:
+        - La fila 0 cuenta las A (Adenina) en cada posición.
+        - La fila 1 cuenta las C (Citosina) en cada posición.
+        - La fila 2 cuenta las G (Guanina) en cada posición.
+        - La fila 3 cuenta las T (Timina) en cada posición.
+
+    Cada columna representa una posición en las secuencias y cada valor indica
+    cuántas veces aparece ese nucleótido en esa posición en todas las secuencias.
+
+    Esta función es útil para:
+        - Analizar conservación de nucleótidos.
+        - Detectar posiciones altamente variables.
+        - Preparar datos para generar la secuencia consenso.
+    """
+    assert len(secuencias) != 0
+    len_secuencias = len(secuencias[0])
+    perfil = [
+        [0] * len_secuencias,  # A
+        [0] * len_secuencias,  # C
+        [0] * len_secuencias,  # G
+        [0] * len_secuencias,  # T
+    ]
+    for i in range(len_secuencias):  # columnas
+        for j in range(len(secuencias)):  # filas
+            nucleotido = secuencias[j][i]
+            if nucleotido == ADENINA:
+                perfil[0][i] += 1
+            elif nucleotido == CITOSINA:
+                perfil[1][i] += 1
+            elif nucleotido == GUANINA:
+                perfil[2][i] += 1
+            elif nucleotido == TIMINA:
+                perfil[3][i] += 1
+    return perfil
