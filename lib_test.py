@@ -55,8 +55,8 @@ def test_es_proteina():
 
 def test_adn_random():
     casos = [
-        [10, "longitud_10"],
         [5, "longitud_5"],
+        [10, "longitud_10"],
         [20, "longitud_20"],
     ]
     for longitud, nombre in casos:

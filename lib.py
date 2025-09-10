@@ -1,4 +1,6 @@
 # Nucleótidos
+import random
+
 ADENINA = 'A'
 TIMINA = 'T'
 CITOSINA = 'C'
@@ -109,7 +111,7 @@ def adn_random(longitud):
     Retorna:
         - str: Secuencia de ADN aleatoria de la longitud solicitada.
     """
-    return ""
+    return "".join(random.choice(NUCLEOTIDOS_ADN) for _ in range(longitud))
 
 
 def mutar_adn(secuencia, cantidad_mutaciones):
@@ -179,7 +181,7 @@ def distancia_hamming(a, b):
     Retorna:
         - int: Cantidad de posiciones donde las secuencias difieren.
     """
-    pass
+    return sum(1 for n_a, n_b in zip(a, b) if n_a != n_b)
 
 
 def buscar_motivo(secuencia, motivo, distancia_hamming_maxima=0):
@@ -194,7 +196,11 @@ def buscar_motivo(secuencia, motivo, distancia_hamming_maxima=0):
     Retorna:
         - list: Lista de índices (int) donde comienza cada coincidencia que cumple con la distancia de Hamming máxima permitida.
     """
-    pass
+    largo_motivo = len(motivo)
+    return [
+        i for i in range(len(secuencia) - largo_motivo + 1)
+        if distancia_hamming(secuencia[i:i + largo_motivo], motivo) <= distancia_hamming_maxima
+    ]
 
 
 def homopolimero_mas_largo(secuencia):
